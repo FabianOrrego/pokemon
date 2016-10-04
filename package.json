@@ -1,0 +1,23 @@
+{
+  "name": "prueba-psl",
+  "version": "1.0.0",
+  "description": "Prueba técnica psl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabianOrrego/prueba-psl.git"
+  },
+  "keywords": [
+    "pokemon",
+    "psl"
+  ],
+  "author": "Fabian orrego",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FabianOrrego/prueba-psl/issues"
+  },
+  "homepage": "https://github.com/FabianOrrego/prueba-psl#readme"
+}
