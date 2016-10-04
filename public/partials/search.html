@@ -1,12 +1,8 @@
-<div class="jumbotron">
-      <div class="container">
-          <div class="col-md-offset-2 col-md-8">
-    <div class="input-group input-group-lg">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Go!</button>
-      </span>
-    </div>
-          </div>
+    <form class="search-form" ng-submit="buscar()">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Search for..." ng-keydown="buscar()" ng-model="search">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="submit">Go!</button>
+        </span>
       </div>
-    </div>
+    </form>

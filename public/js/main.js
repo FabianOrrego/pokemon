@@ -1,24 +1,20 @@
 (function(){
     
- 	var app = angular.module('pokemon', ['ngRoute', 'pokemonControllers']); 
+ 	var app = angular.module('pokemon', ['ngRoute', 'pokemon.controllers', 'pokemon.directives']); 
 
     app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'index.html',
+        templateUrl: 'views/pokemon.html',
         controller: 'PokemonController'
+      })
+      .when('/details/:name',{
+          templateUrl: 'views/details.html',
+          controller: 'DetailsController'
       })
       .otherwise({
         redirectTo: '/'
       });
 
     }]);
-
-    app.directive('search', function () {
-      return {
-        restrict: 'E',
-        templateUrl: 'partials/search.html'
-      };
-    })
-
  })();

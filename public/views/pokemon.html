@@ -1,0 +1,16 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-offset-2 col-md-8">
+            <search></search>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-sm-6 col-md-3" ng-repeat="pokemon in pokemons">
+            <a class="btn btn-default" href="#/details/{{pokemon.name}}" role="button"><img class="img-responsive center-block" src="img/{{pokemon.name}}.png">           
+               <p class="bulbasaur">{{pokemon.name}}</p>
+            </a>
+        </div>        
+    </div>
+</div>
