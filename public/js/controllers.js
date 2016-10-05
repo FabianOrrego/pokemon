@@ -12,7 +12,6 @@
     .controller('DetailsController', function($scope, httpService, $routeParams){
         httpService.callParams('http://pokeapi.co/api/v2/pokemon/' + $routeParams.name + "/").then(function(data){
              $scope.details = data;
-             console.log(data);
              getDescription(data.id);
         }).catch(function(){
             $scope.details = [];
