@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/FabianOrrego/prueba-psl/issues"
   },
-  "homepage": "https://github.com/FabianOrrego/prueba-psl#readme"
+  "homepage": "https://github.com/FabianOrrego/prueba-psl#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
 }

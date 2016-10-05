@@ -1,6 +1,6 @@
 (function(){
     
- 	var app = angular.module('pokemon', ['ngRoute', 'pokemon.controllers', 'pokemon.directives']); 
+ 	var app = angular.module('pokemon', ['ngRoute', 'pokemon.controllers', 'pokemon.directives', 'pokemon.filters']); 
 
     app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

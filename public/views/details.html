@@ -24,14 +24,14 @@
                 
                 <div class="row">
                     <div class="col-md-6">
-                        <p><b>Altura:</b>{{details.height}}m</p>
-                        <p><b>Peso:</b>{{details.weight}}kg</p>
-                        <p><b>Sexo:</b>Masculino - Femenino</p>
+                        <p><b>Altura: </b>{{details.height | metros}}m</p>
+                        <p><b>Peso: </b>{{details.weight}}kg</p>
+                        <p><b>Sexo: </b>Masculino - Femenino</p>
                     </div>
                     <div class="col-md-6">
-                        <p><b>Categoría:</b>Semilla</p>
-                        <p><b>Habilidad:</b>{{details.abilities.join(',').ability.name}}</p>
-                        <p><b>Debilidad:</b>Fuego</p>
+                        <p><b>Categoría: </b>Semilla</p>
+                        <p><b>Habilidad :</b>{{details.abilities.join(',').ability.name}}</p>
+                        <p><b>Debilidad: </b>Fuego</p>
                     </div>
                 </div>          
             </div>         

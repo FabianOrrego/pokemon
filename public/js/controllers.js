@@ -14,7 +14,7 @@
                 });      
         $scope.buscar = function(){                  
                 var rex = new RegExp($scope.search)
-               // alert(rex);
+               //alert(rex);
                 var arrayLocal = JSON.parse(localStorage.pokemons); 
                 $scope.pokemons = arrayLocal.filter( pokemon => {
                 if(rex.test(pokemon.name)){
