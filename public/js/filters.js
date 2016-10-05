@@ -2,7 +2,7 @@
 
   angular.module('pokemon.filters', [])
   
-    .filter('metros', function () {
+    .filter('meters', function () {
       return function (input) {
           if (!input) return "";
 

@@ -15,30 +15,26 @@
             </div>
             <div class="col-md-6">
                 <hr/>
-                <p>A Bulbasaur es fácil verle echándose una siesta al sol. 
-                La semilla que tiene en el lomo va creciendo cada vez más a medida que absorbe los rayos del sol.</p>
-
-                <p>Los Bulbasaur se reúnen una vez al año en un lugar secreto dentro del bosque al que ningún humano 
-                puede entrar, donde evolucionan a Ivysaur.</p>
+                <p>{{description}}</p>
                 <hr/>
                 
                 <div class="row">
                     <div class="col-md-6">
-                        <p><b>Altura: </b>{{details.height | metros}}mt</p>
+                        <p><b>Altura: </b>{{details.height | meters}}mt</p>
                         <p><b>Peso: </b>{{details.weight}}kg</p>
-                        <p><b>Sexo: </b>{{genero}}</p>
+                        <p><b>Sexo: </b>no disponible</p>
                     </div>
                     <div class="col-md-6">
                         <p><b>Categoría: </b> <span ng-repeat="type in details.types">{{type.type.name}} </span></p>
                         <p><b> Habilidad: </b> <span ng-repeat="ability in details.abilities">{{ability.ability.name}} </span></p>
-                        <p><b>Debilidad: </b>Fuego</p>
+                        <p><b>Debilidad: </b>no disponible</p>
                     </div>
                 </div>          
             </div>         
             <div class="col-md-12">                   
                 <div class="col-sm-offset-1 col-sm-2">
                     <h2>Altura</h2>
-                    <div class="c100 p12 small center">
+                    <div class="c100 p{{details.height}} small center">
                         <span>{{details.height}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
@@ -49,7 +45,7 @@
                 
                 <div class="col-sm-2">
                     <h2>Defensa</h2>
-                    <div class="c100 p30 small green center">
+                    <div class="c100 p{{details.stats[3].base_stat}} small green center">
                         <span>{{details.stats[3].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
@@ -60,7 +56,7 @@
                 
                 <div class="col-sm-2">
                     <h2>Ataque Especial</h2>
-                    <div class="c100 p70 small orange center">
+                    <div class="c100 p{{details.stats[2].base_stat}} small orange center">
                         <span>{{details.stats[2].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
@@ -71,7 +67,7 @@
 
                 <div class="col-sm-2">
                     <h2>Defensa Especial</h2>
-                    <div class="c100 p87 small center">
+                    <div class="c100 p{{details.stats[1].base_stat}} small center">
                         <span>{{details.stats[1].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
@@ -82,7 +78,7 @@
                 
                 <div class="col-sm-2">
                     <h2>Velocidad</h2>
-                    <div class="c100 p15 small green center">
+                    <div class="c100 p{{details.stats[0].base_stat}} small green center">
                         <span>{{details.stats[0].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
