@@ -7,7 +7,7 @@
 </div>
 <div class="container-fluid">
     <div class="container">
-        <div class="col-sm-6 col-md-3" ng-repeat="pokemon in pokemons">
+        <div class="col-sm-6 col-md-3" ng-repeat="pokemon in pokemons | filter: search">
             <a class="btn btn-default" href="#/details/{{pokemon.name}}" role="button"><img class="img-responsive center-block" src="img/{{pokemon.name}}.png">           
                <p class="bulbasaur">{{pokemon.name}}</p>
             </a>

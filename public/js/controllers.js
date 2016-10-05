@@ -1,39 +1,59 @@
 (function(){
 	angular.module('pokemon.controllers',[])
 
-    .controller('PokemonController', function($scope, $http){
-        'use strict';
-        $scope.pokemons = [];
-
-        $http.get('http://pokeapi.co/api/v2/pokemon/') 
+    .service('httpService',  function($http, $q){
+        return{
+            obtenerpokemons :  function (){
+                var p = $q.defer();
+                $http.get('http://pokeapi.co/api/v2/pokemon/') 
                 .success(function(data){
-                    $scope.pokemons = data.results;
-                    localStorage.pokemons = JSON.stringify($scope.pokemons);
+                    p.resolve(data.results);
+                    
                 }).error(function(data){
-                    $scope.pokemons = [];
-                });      
-        $scope.buscar = function(){                  
-                var rex = new RegExp($scope.search)
-               //alert(rex);
-                var arrayLocal = JSON.parse(localStorage.pokemons); 
-                $scope.pokemons = arrayLocal.filter( pokemon => {
-                if(rex.test(pokemon.name)){
-                    return pokemon;
-                }
-            })                  
-        }; 
+                    p.reject("error");
+                })
+                return p.promise;    
+            },
+
+            llamadoParams :  function (url){
+                var p = $q.defer();
+                $http.get(url) 
+                .success(function(data){
+                    p.resolve(data);               
+                }).error(function(data){
+                    p.reject("error");
+                })
+                return p.promise;    
+            }
+
+            
+        }
+
+    })
+
+    .controller('PokemonController', function($scope, httpService){
+         httpService.obtenerpokemons().then(function(data){
+             $scope.pokemons = data;
+        }).catch(function(){
+            $scope.pokemons = [];
+        })          
     })
     
-    .controller('DetailsController', function($scope, $http, $routeParams){
-        $scope.details = [];
+    .controller('DetailsController', function($scope, httpService, $routeParams){
+        httpService.llamadoParams('http://pokeapi.co/api/v2/pokemon/' + $routeParams.name + "/").then(function(data){
+             $scope.details = data;
+             obtenerGenero(data.id);
+        }).catch(function(){
+            $scope.details = [];
+        }) 
 
-        $http.get('http://pokeapi.co/api/v2/pokemon/' + $routeParams.name + "/") 
-            .success(function(data){                    
-                $scope.details = data;
-                console.log(data);
-             }).error(function(data){
-                 $scope.details = [];
-             });
-    })   
+       function obtenerGenero(id){ 
+            httpService.llamadoParams('http://pokeapi.co/api/v2/gender/' + id + "/").then(function(data){
+                $scope.genero = data.name;
+            }).catch(function(){
+                $scope.genero = "sin genero";
+            })          
+        }
+    })
 })();
 

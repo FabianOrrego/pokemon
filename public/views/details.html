@@ -24,13 +24,13 @@
                 
                 <div class="row">
                     <div class="col-md-6">
-                        <p><b>Altura: </b>{{details.height | metros}}m</p>
+                        <p><b>Altura: </b>{{details.height | metros}}mt</p>
                         <p><b>Peso: </b>{{details.weight}}kg</p>
-                        <p><b>Sexo: </b>Masculino - Femenino</p>
+                        <p><b>Sexo: </b>{{genero}}</p>
                     </div>
                     <div class="col-md-6">
-                        <p><b>Categoría: </b>Semilla</p>
-                        <p><b>Habilidad :</b>{{details.abilities.join(',').ability.name}}</p>
+                        <p><b>Categoría: </b> <span ng-repeat="type in details.types">{{type.type.name}} </span></p>
+                        <p><b> Habilidad: </b> <span ng-repeat="ability in details.abilities">{{ability.ability.name}} </span></p>
                         <p><b>Debilidad: </b>Fuego</p>
                     </div>
                 </div>          
@@ -39,7 +39,7 @@
                 <div class="col-sm-offset-1 col-sm-2">
                     <h2>Altura</h2>
                     <div class="c100 p12 small center">
-                        <span>12%</span>
+                        <span>{{details.height}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
@@ -50,7 +50,7 @@
                 <div class="col-sm-2">
                     <h2>Defensa</h2>
                     <div class="c100 p30 small green center">
-                        <span>30%</span>
+                        <span>{{details.stats[3].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
@@ -61,7 +61,7 @@
                 <div class="col-sm-2">
                     <h2>Ataque Especial</h2>
                     <div class="c100 p70 small orange center">
-                        <span>70%</span>
+                        <span>{{details.stats[2].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
@@ -72,7 +72,7 @@
                 <div class="col-sm-2">
                     <h2>Defensa Especial</h2>
                     <div class="c100 p87 small center">
-                        <span>87%</span>
+                        <span>{{details.stats[1].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
@@ -83,7 +83,7 @@
                 <div class="col-sm-2">
                     <h2>Velocidad</h2>
                     <div class="c100 p15 small green center">
-                        <span>15%</span>
+                        <span>{{details.stats[0].base_stat}}%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
